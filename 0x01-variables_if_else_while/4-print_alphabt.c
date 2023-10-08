@@ -10,18 +10,15 @@
 int main(void)
 {
 	char lower = 'a';
-	char upper = 'r';
 
-	while (lower < 'e' && lower < 'q')
+	while (lower < 'e' && lower < 'q' && lower <= 'z')
 	{
 		putchar(lower);
 		lower++;
 	}
-	while (upper <= 'z')
-	{
-		putchar(upper);
-		upper++;
-	}
+
+
+	
 	putchar('\n');
 
 	return (0);
