@@ -16,7 +16,7 @@ int main(void)
 		}
 		else
 		{
-			putchar('A' + (hex - 10));
+			putchar('a' + (hex - 10));
 		}
 		hex++;
 
