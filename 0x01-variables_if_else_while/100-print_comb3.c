@@ -8,7 +8,7 @@ int main(void)
 {
 	int tensDigit = 0;
 
-	while (tensDigit <= 9)
+	while (tensDigit < 9)
 	{
 		int onesDigit = tensDigit + 1;
 
@@ -16,8 +16,11 @@ int main(void)
 		{
 			putchar('0' + tensDigit);
 			putchar('0' + onesDigit);
-			putchar(',');
-			putchar(' ');
+			if (tensDigit != 8 || onesDigit != 9)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 			onesDigit++;
 		}
 
