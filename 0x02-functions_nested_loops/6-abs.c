@@ -3,12 +3,11 @@
 /**
  * _abs - prints the absolute value of a number
  *
- * @int: parameter value
+ * @n: parameter value
  * Return: always 0(success)
  */
 int _abs(int n)
 {
-
 	if (n < 0)
 	{
 		n = -n;
