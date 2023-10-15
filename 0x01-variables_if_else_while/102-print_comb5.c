@@ -32,6 +32,7 @@ int main(void)
 
 		num1++;
 	}
+	putchar(' ');
 
 	return (0);
 }
