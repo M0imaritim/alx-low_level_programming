@@ -7,8 +7,12 @@ void print_rev(char *s)
 {
 	int i = 0;
 
-	while (s[i] <= s[-1])
+	while (i >= 0)
 	{
+		if (s[i] == '\0')
+		{
+			break;
+		}
 		i++;
 	}
 	while (i >= 0)
