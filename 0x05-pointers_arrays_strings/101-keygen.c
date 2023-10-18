@@ -20,11 +20,13 @@ char generateRandomCharacter()
 
 int main()
 {
-	srand(time(NULL));
 	int passwordLength = 10;
+	int i = 0;
+
+	srand(time(NULL));
 
 	printf("Random Password: ");
-	for (int i = 0; i < passwordLength; i++)
+	for (i = 0; i < passwordLength; i++)
 	{
 		printf("%c", generateRandomCharacter());
 	}
