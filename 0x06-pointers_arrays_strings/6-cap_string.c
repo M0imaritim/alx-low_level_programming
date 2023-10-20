@@ -22,7 +22,7 @@ char *cap_string(char *str)
 				   *(ptr - 1) == '(' || *(ptr - 1) == ')' ||
 				   *(ptr - 1) == '{' || *(ptr - 1) == '}'))
 			{
-			        *ptr -= 32;
+				*ptr -= 32;
 			}
 		}
 		ptr++;
