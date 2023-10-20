@@ -1,11 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 /**
-*_strncat - concatnatestwo strings
-*@dest: the first string that the second string will be appended to
-*@src: the second string to be appended to the first
-*@n: the maximum characters to be appended
-*Return: pointer to the resulting string dest
+* _strncat - concatnates two strings
+* @dest: the first string that the second string will be appended to
+* @src: the second string to be appended to the first
+* @n: the maximum characters to be appended
+* Return: pointer to the resulting string dest
 */
 char *_strncat(char *dest, char *src, int n)
 {
