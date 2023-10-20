@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * leet - Encodes a string into 1337 speak.
  * @str: The input string.
