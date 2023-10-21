@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * leet - Encodes a string into 1337 speak.
  * @str: The input string.
@@ -11,11 +10,6 @@ char *leet(char *str)
 	char *leet_replace = "aAeEoOtTlL";
 	char *leet_with = "443370711";
 	int i = 0;
-
-	if (str == NULL)
-	{
-		return (NULL);
-	}
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
