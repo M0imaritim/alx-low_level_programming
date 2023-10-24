@@ -11,7 +11,7 @@ char *_strchr(char *s, char c)
 {
 	int j = 0;
 
-	while (s[j])
+	while (s[j] && s[j] != c)
 	{
 		j++;
 	}
