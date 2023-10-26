@@ -13,5 +13,7 @@ int wildcmp(char *s1, char *s2);
 int _putchar(char c);
 int sqr00t(int n, int s);
 int prime_recursive(int n, int divisor);
+int check_palindrome(char *s, int start, int end);
+int _strlen(char *s);
 
 #endif
