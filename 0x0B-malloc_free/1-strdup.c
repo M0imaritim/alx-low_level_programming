@@ -18,10 +18,13 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
+	else
+	{
+		strcpy(new_str, str);
+	}
 	if (new_str == NULL)
 	{
 		return (NULL);
 	}
-	strcpy(new_str, str);
 	return (new_str);
 }
