@@ -10,6 +10,8 @@
  * @owner: dog's owner
  * Description: a simple structure to define the attributes of a dog
  */
+typedef struct dog dog_t;
+
 struct dog
 {
 	char *name;
