@@ -2,7 +2,7 @@
 #include "dog.h"
 /**
  * print_dog - prints s struct dog
- *
+ * @d: poimter to structure representing dog
  */
 
 void print_dog(struct dog *d)
