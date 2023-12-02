@@ -1,3 +1,4 @@
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
@@ -45,8 +46,8 @@ int main(int argc, char *argv[])
 		exit_with_error(99, "Error: Can't write to file %s\n", argv[2]);
 	while ((red = read(from_fd, buffer, BUFFER_SIZE)) > 0)
 	{
-		written = write(to_fd, buffer, read);
-		if (written == -1 || written != read)
+		written = write(to_fd, buffer, red);
+		if (written == -1 || written != red)
 			exit_with_error(99, "Error: Can't write to file %s\n",
 					argv[2]);
 	}
