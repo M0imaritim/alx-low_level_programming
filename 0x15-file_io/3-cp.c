@@ -44,16 +44,18 @@ int main(int argc, char *argv[])
 	to_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (to_fd == -1)
 		exit_with_error(99, "Error: Can't write to file %s\n", argv[2]);
-	while ((red = read(from_fd, buffer, BUFFER_SIZE)) > 0)
+	red = 1024;
+	while (red == 1024)
 	{
+		red = read(from_fd, buffer, BUFFER_SIZE);
+		if (red == -1)
+			exit_with_error(98, "Error: Can't read from file %s\n",
+					argv[1]);
 		written = write(to_fd, buffer, red);
 		if (written == -1 || written != red)
 			exit_with_error(99, "Error: Can't write to file %s\n",
 					argv[2]);
 	}
-	if (red == -1)
-		exit_with_error(98, "Error: Can't read from file %s\n",
-				argv[1]);
 	if (close(from_fd) == -1)
 		exit_with_error(100, "Error: Can't close fd %d\n", from_fd);
 	if (close(to_fd) == -1)
