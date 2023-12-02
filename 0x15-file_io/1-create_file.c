@@ -1,7 +1,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <string.h>
 #include "main.h"
 /**
  * create_file - Creates a file with specified content.
@@ -12,6 +11,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fildes;
+	int chars;
 	ssize_t written;
 
 	if (filename == NULL)
@@ -23,7 +23,9 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	if (!text_content)
 		text_content = "";
-	written = write(fildes, text_content, strlen(text_content));
+	for (chars = 0; text_content[chars]; chars++)
+		;
+	written = write(fildes, text_content, chars);
 	if (written == -1)
 	{
 		close(fildes);
