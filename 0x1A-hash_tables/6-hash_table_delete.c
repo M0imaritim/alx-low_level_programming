@@ -11,7 +11,7 @@ void hash_table_delete(hash_table_t *ht)
 
 	if (ht == NULL)
 		return;
-	hash_table_print(ht);
+	/*hash_table_print(ht);*/
 
 	for (i = 0; i < ht->size; i++)
 	{
