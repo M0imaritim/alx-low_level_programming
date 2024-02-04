@@ -2,7 +2,10 @@
 #define _HASH_TABLE
 
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
+
+#define DEFAULT_SIZE 10
 
 /**
  * struct hash_node_s - Node of a hash table
