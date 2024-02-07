@@ -13,7 +13,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht == NULL)
 	{
-		ht = hash_table_create(DEFAULT_SIZE);
+		/*ht = hash_table_create(DEFAULT_SIZE);*/
 		if (ht == NULL)
 			return (0);
 	}
