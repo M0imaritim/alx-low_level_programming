@@ -2,7 +2,7 @@
 #include <math.h>
 
 /**
- * jump_search - Searches for a value in a sorted array using Jump Search.
+ * jump_search - Searches for a value in a sorted array using the Jump Search algorithm.
  * @array: Pointer to the first element of the array.
  * @size: Number of elements in the array.
  * @value: The value to search for.
@@ -25,12 +25,12 @@ int jump_search(int *array, size_t size, int value)
     }
 
     size_t start = prev > step ? prev - step : 0;
-    size_t end = prev < size ? prev : size - 1; // Fix: Correct boundary
+    size_t end = prev < size ? prev : size; // Fix: Use `size` instead of `size - 1`
 
     printf("Value found between indexes [%lu] and [%lu]\n", start, end);
 
     // Performing linear search in the identified block
-    for (i = start; i <= end; i++) // Fix: Inclusive search within range
+    for (i = start; i < end; i++) // Fix: Use `< end` instead of `<= end`
     {
         printf("Value checked array[%lu] = [%d]\n", i, array[i]);
         if (array[i] == value)
