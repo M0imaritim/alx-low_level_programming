@@ -15,8 +15,7 @@ int jump_search(int *array, size_t size, int value)
         return (-1);
 
     size_t step = sqrt(size);
-    size_t prev = 0;
-    size_t i;
+    size_t prev = 0, i;
 
     // Finding the block where value might be present
     while (prev < size && array[prev] < value)
@@ -26,12 +25,12 @@ int jump_search(int *array, size_t size, int value)
     }
 
     size_t start = prev > step ? prev - step : 0;
-    size_t end = prev < size ? prev : size;
+    size_t end = prev < size ? prev : size - 1; // Fix: Correct boundary
 
-    printf("Value found between indexes [%lu] and [%lu]\n", start, end - 1);
+    printf("Value found between indexes [%lu] and [%lu]\n", start, end);
 
     // Performing linear search in the identified block
-    for (i = start; i < end; i++)
+    for (i = start; i <= end; i++) // Fix: Inclusive search within range
     {
         printf("Value checked array[%lu] = [%d]\n", i, array[i]);
         if (array[i] == value)
