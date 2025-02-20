@@ -1,51 +1,52 @@
-#include <stdio.h>
+#include "search_algos.h"
+
+int recurse_helper(int *array, size_t left, size_t right, int value);
 
 /**
- * interpolation_search - Searches for a value in a sorted array using
- *                        the Interpolation search algorithm.
- * @array: Pointer to the first element of the array to search in.
- * @size: Number of elements in the array.
- * @value: The value to search for.
+ * interpolation_search - find value in array
+ * @array: array to search
+ * @size: size of array
+ * @value: search value
  *
- * Return: The first index where value is located, or -1 if not found.
+ * Return: index of matched value; -1 if not found
  */
 int interpolation_search(int *array, size_t size, int value)
 {
-    size_t low, high, pos;
-
-    if (!array || size == 0)
+    if (array == NULL)
         return (-1);
 
-    low = 0;
-    high = size - 1;
+    return (recurse_helper(array, 0, size - 1, value));
+}
+/**
+ * recurse_helper - recursive implement
+ * @array: array to search
+ * @left: left bound of subarray
+ * @right: right bound of subarray
+ * @value: search value
+ *
+ * Return: index of found value; -1 if not found
+ */
+int recurse_helper(int *array, size_t left, size_t right, int value)
+{
+    size_t pos = left + (((double)(right - left) /
+                          (array[right] - array[left])) *
+                         (value - array[left]));
 
-    while (low <= high && value >= array[low] && value <= array[high])
+    if (pos > right)
     {
-        /* Avoid division by zero */
-        if (array[high] == array[low])
-            break;
-
-        /* Compute the probe position */
-        pos = low + (((double)(high - low) /
-                      (array[high] - array[low])) *
-                     (value - array[low]));
-
-        if (pos >= size)
-        {
-            printf("Value checked array[%lu] is out of range\n", pos);
-            break;
-        }
-
-        printf("Value checked array[%lu] = [%d]\n", pos, array[pos]);
-
-        if (array[pos] == value)
-            return (pos);
-
-        if (array[pos] < value)
-            low = pos + 1;
-        else
-            high = pos - 1;
+        printf("Value checked array[%lu] is out of range\n", pos);
+        return (-1);
     }
 
-    return (-1);
+    if (left > right)
+        return (-1);
+
+    printf("Value checked array[%lu] = [%d]\n", pos, array[pos]);
+
+    if (array[pos] == value)
+        return (pos);
+    else if (array[pos] > value) /* over-shot; move left */
+        return (recurse_helper(array, left, pos - 1, value));
+    else /* under-shot; move right */
+        return (recurse_helper(array, pos + 1, right, value));
 }
